@@ -1,0 +1,1 @@
+git remote add origin git@github.com:cs-2480/lab-6-Evan-Trafton.git
