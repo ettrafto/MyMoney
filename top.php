@@ -1,6 +1,6 @@
-<?php
-define ('PHP_SELF',$_SERVER['PHP_SELF']);
-define ('PATH_PARTS', pathinfo(PHP_SELF));
+<?php 
+$phpSelf=htmlspecialchars($_SERVER['PHP_SELF']);
+$pathParts = pathinfo($phpSelf);
 ?>
 
 <!DOCTYPE HTML>
@@ -9,7 +9,7 @@ define ('PATH_PARTS', pathinfo(PHP_SELF));
         <meta charset="utf-8">
         <title>CS2480 Lab6</title>
         <meta name="author" content="Evan Trafton">
-        <meta name="description" content="CS2480 Lab4 ">
+        <meta name="description" content="CS2480 Lab6 ">
         
         <meta name="viewport" content="width=device-width, intial-scale=1.0">
         
@@ -25,6 +25,8 @@ define ('PATH_PARTS', pathinfo(PHP_SELF));
 
     <?php
     print '<body>' . PHP_EOL;
+    include 'Connect-DB.php';
+    print PHP_EOL;
     include 'header.php';
     print PHP_EOL;
     include 'nav.php';

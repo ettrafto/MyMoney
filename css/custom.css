@@ -1,0 +1,83 @@
+*{
+    font-family: 'Raleway','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+}
+
+  
+  header {
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid black;
+  }
+  
+  #logo {
+    flex: 0.03; 
+    display: flex; 
+    align-items: center; 
+  }
+  
+  #logo img {
+    height: 4em;
+  }
+  
+  #main-title {
+    flex: 1; 
+    font-size: 3em;
+    font-weight: normal;
+  }
+  
+  #spacer {
+    flex: 8.22;
+    height: 0;
+  }
+  
+  #username {
+    flex: 0.02;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  #settingsIcon {
+    flex: 0.02;
+    max-width:100;
+    flex: 0.03; 
+    display: flex; 
+    align-items: center; 
+  }
+#settingsIcon img{
+  height: 2em
+}
+nav {
+    display: flex;
+    align-items: center;
+}
+nav a{
+    justify-content:flex-start;
+    padding: 0.5em 1.7em;
+    margin: 1.4em 1.3em;
+    border: 3px black solid;
+    
+}
+
+nav a:link {
+    text-decoration-color: black;
+}
+
+nav a:visited {
+    color: darkblue;
+    text-decoration: none;
+}
+
+nav a:hover {
+      border: 4px dashed aliceblue;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+}
+
+footer p{
+    padding: 0.2em 1em;
+}
