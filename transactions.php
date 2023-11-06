@@ -49,7 +49,7 @@ include 'top.php';
                 
                 echo '</table>';
                 ?>
-                    </table>
+
 
         </main>
     
