@@ -27,11 +27,6 @@ $pathParts = pathinfo($phpSelf);
 
         $netId = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
         
-        if(in_array($netId, $allowedNetIds)){
-            print '<h1>password protected</h1>';
-        } else{
-            print '<p> access denied</p>';
-        }
 
         ?>
     </head>
