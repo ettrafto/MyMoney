@@ -27,7 +27,6 @@ $pathParts = pathinfo($phpSelf);
 
         $netId = htmlentities($_SERVER["REMOTE_USER"], ENT_QUOTES, "UTF-8");
         
-
         ?>
     </head>
 
