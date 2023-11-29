@@ -6,6 +6,7 @@ include 'top.php';
         <p>breakdown</p>
 
         <p>help</p>
+        <p>help</p>     
         
         </main>
     
