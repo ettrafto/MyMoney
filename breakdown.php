@@ -5,8 +5,17 @@ include 'top.php';
         <main>                  
         <p>breakdown</p>
 
-        <p>help</p>
-        <p>help</p>     
+
+        
+        <?php
+            /*foreach($transactions as $transaction){
+                switch categoryId;
+                    case: 
+            }*/
+        
+        
+        
+        ?>
         
         </main>
     

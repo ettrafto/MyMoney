@@ -1,7 +1,15 @@
 <?php
+
+// where to set userId 
+// what belongs in the GET
+$userId = (isset($_GET['userId'])) ? (int) htmlspecialchars($_GET['userId']) : null;
+
+//testing 
+$userId = 1;
+$totalBudget = 1000;
+
 //TO-DO: pass and recieve value
 //passed value
-$userId;
 
 //sanitization function
 function getData($field){
@@ -23,25 +31,52 @@ function getData($field){
     //can use !in_array to validate multi selects 
 
 //declaring variables for stickyness
-$month;
-$spending;
-$income;
-$housing;
-$utilities;
-$food;
-$transportation;
-$loans;
-$savings;
-$personal;
-$entertainment;
-$healthFitness;
-$education;
-$investments;
-$miscellaneous;
+$month='';
+$spending='';
+$income='';
+$housing='';
+$utilities='';
+$food='';
+$transportation='';
+$loans='';
+$savings='';
+$personal='';
+$entertainment='';
+$healthFitness='';
+$education='';
+$investments='';
+$miscellaneous='';
 
 $dataIsGood =false;
+
+//pulling intial values for updates
+
+/*
+if($userId> 0) {
+     $sql= 'SELECT pmkWildlifeId, fldType, fldCommonName, fldDescription, fldHabitat, '; 
+     $sql .= 'fldReproduction, fldDiet, fldManagement, fldStatus, fldMainImage'; 
+     $sql .= 'FROM tblWildlife';
+     $sql .= 'WHERE pmkWildlifeId= ? '; 
+     $sql .= 'ORDER BY fldCommonName'; 
+     $data= array($critterId); 
+     $animals= $thisDatabaseReader->select($sql, $data); 
+if(!empty($animals)) { 
+    $critterCommonName= $animals[0]['fldCommonName']; 
+    $critterType= $animals[0]['fldType']; 
+    $description= $animals[0]['fldDescription']; 
+    $habitat= $animals[0]['fldHabitat']; 
+    $reproduction= $animals[0]['fldReproduction']; 
+    $diet= $animals[0]['fldDiet']; 
+    $management= $animals[0]['fldManagement']; 
+    $status= $animals[0]['fldStatus']; 
+    $mainImage= $animals[0]['fldMainImage']; } 
+}
+*/
+
+
+
 ?>
-<section id="me-form">
+<section id="form">
 
 <?php
                
@@ -67,7 +102,134 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $education = (int) getData("txtEducation");
     $investments = (int) getData("txtInvestments");
     $miscellaneous = (int) getData("txtMiscellaneous");
+
+//validattion
+
+//saving
+
+$params = array();
+
+$sql = "INSERT INTO tblBudget (pmkMonth, fnkUserId, fnkCategoryName, fldTotalBudget, fldAmount) VALUES ";
+
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "housing";
+$params[] = $spending;
+$params[] = $housing;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "utilities";
+$params[] = $spending;
+$params[] = $utilities;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "food";
+$params[] = $spending;
+$params[] = $food;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "transportation";
+$params[] = $spending;
+$params[] = $transportation;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "loans";
+$params[] = $spending;
+$params[] = $loans;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "savings";
+$params[] = $spending;
+$params[] = $savings;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "personal";
+$params[] = $spending;
+$params[] = $personal;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "entertainment";
+$params[] = $spending;
+$params[] = $entertainment;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "healthFitness";
+$params[] = $spending;
+$params[] = $healthFitness;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "education";
+$params[] = $spending;
+$params[] = $education;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "investments";
+$params[] = $spending;
+$params[] = $investments;
+
+$sql .= " (?, ?, ?, ?, ?), ";
+
+$params[] = $month;
+$params[] = $userId;
+$params[] = "miscellaneous";
+$params[] = $spending;
+$params[] = $miscellaneous;
+
+$sql .= " (?, ?, ?, ?, ?) ";
+
+
+$sqlText = $sql;
+foreach ($params as $value){
+// Look for ? and replace with the value
+// look for ? replace with value
+$pos = strpos($sqlText, '?');
+if ($pos !== false) {
+$sqlText = substr_replace($sqlText, '"' . $value . '"', $pos, strlen('?'));
 }
+}
+print '<p>' . $sqlText . '</p>';
+
+}
+
+
+
+
+
+
 
 
 print PHP_EOL . '<!--Starting Validation-->' . PHP_EOL;
@@ -88,100 +250,42 @@ $variables = array(
     "education" => (int) getData("txtEducation"),
     "investments" => (int) getData("txtInvestments"),
     "miscellaneous" => (int) getData("txtMiscellaneous"),
-    "planning" => (int) getData("chkPlanning")
 );
 
 
 foreach ($variables as $varName => $value) {
-    if ($value == "") {
-        print "<p class='mistake'>Please enter your $varName.</p>";
+    if ($varName === "month" && (empty($value) || !is_numeric($value))) {
+        print "<p class='mistake'>Please select a valid month.</p>";
         $dataIsGood = false;
-    } elseif (!verifyAlphaNum($value)) {
-        print("<p class='mistake'>Your $varName contains extra characters that are not allowed. ");
-        print("Use only letters, numbers, hyphens, and spaces.</p>");
+    } elseif ($value === 0) {
+        print "<p class='mistake'>Please enter a valid $varName.</p>";
+        $dataIsGood = false;
+    } elseif (!is_numeric($value)) {
+        print("<p class='mistake'>Your $varName must be a numeric value.</p>");
         $dataIsGood = false;
     }
 }
-
-
-
-//save the data
-if ($dataIsGood){
-        print "data is good";
-
-        $userSql = "UPDATE tblUser SET fldIncome = ? WHERE pmkUserId = $userId";
-
-
-        
-        // Prepare the statement
-        $stmt = $mysqli->prepare($userSql);
-
-        // Bind parameters
-        $stmt->bind_param("d", $income);
-
-        $stmt->execute();
-        $stmt->close();
-}
-
-
-        
-
-$variables2 = array(
-    $housing,
-    $utilities,
-    $food,
-    $transportation,
-    $loans,
-    $savings,
-    $personal,
-    $entertainment,
-    $healthFitness,
-    $education,
-    $investments, 
-    $miscellaneous);
-
-        //for each of the above values, where varName gives key of currElement and value give value
-        foreach ($variables2 as $varName => $value){
-
-            $sql = "INSERT INTO tblBudget (pmkMonth, fnkUserId, fnkCategoryName, fldTotalBudget, fldAmount)";
-            $sql .= "VALUES (?, ?, ?, ?, ?)";
-                
-            // Bind parameters
-            $stmt = $mysqli->prepare($sql);
-            $stmt->bind_param("sdsdd", $month, $userId, $varName, $spending, $value);
-
-            // Execute the statement
-            $stmt->execute();
-
-            // Close the statement
-            $stmt->close();
-
-        }
-
-        //TO-DO: edit to work with my statements
-        /*      try {
-                $statement = $pdo->prepare($sql);
-
-                if ($statement->execute($params)) {
-                        print('<h2>Thank you, your information has been received.</h2>');
-                } else {
-                        print('<p>Record was NOT successfully saved.</p>');
-                }
-        } catch (PDOException $e) {
-            print('<p>Couldn\'t insert the record</p>');
-        }*/
-
 
 ?>
 
 <h2>Montly Goal</h2>
 <form action = "#" method = "POST">
+
+    <!-- passing userId to form -->
+    <input type="hidden"
+           value="<?php print $critterId; ?>"
+           id="hidWildlifeId"
+           name="hidWildlifeId" >
         
     <fieldset  class="listbox">
 
-        <legend>Select a Month</legend>
+
+
+
+    <fieldset class = "Budget">
+
         <p>
-            <select id="MultiMonth" name="MultiMonth" tabindex="100" required>
+            <select id="MultiMonth" name="txtMonth" tabindex="100" required>
                 <option value="Janurary"<?php if($month == "Janurary") print('selected') ?>>Janurary</option>
                 <option value="February" <?php if($month == "February") print('selected') ?>>February</option>
                 <option value="March" <?php if($month == "March") print('selected') ?>>March</option>
@@ -194,13 +298,8 @@ $variables2 = array(
                 <option value="October" <?php if($month == "October") print('selected') ?>>October</option>
                 <option value="November" <?php if($month == "November") print('selected') ?>>November</option>
                 <option value="December" <?php if($month == "December") print('selected') ?>>December</option>
-
             </select>
         </p>
-    </fieldset>
-
-
-    <fieldset class = "Budget">
 
         <p>
             <label class = "label" for = "txtSpending">Monthly Spending:</label>
@@ -281,4 +380,3 @@ $variables2 = array(
             value = "Submit" >
     </fieldset>
 </form>
-
