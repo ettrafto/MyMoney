@@ -28,6 +28,7 @@ include 'top.php';
                 $statement->execute();
 
                 $records = $statement->fetchAll();
+                
                 print '<table>';
                 print '<tr>';
                 print '<th>Name</th>';

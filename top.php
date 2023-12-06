@@ -19,7 +19,16 @@ $pathParts = pathinfo($phpSelf);
         <link rel="stylesheet" media="(max-width: 800px)" href="css/tablet.css?version=<?php print time(); ?>" type="text/css">
         <link rel="stylesheet" media="(max-width: 600px)" href="css/phone.css?version=<?php print time(); ?>" type="text/css">
 
-        <!-- Javascript link would go here  -->
+        <script>
+            function dropPanel(id){
+                var element = document.getElementById(id);
+                if (element.style.display === 'none') {    
+                    element.style.display = 'block';       
+                } else if (element.style.display === 'block') { 
+                    element.style.display = 'none';        
+                }
+            }
+        </script>
     </head>
 
 

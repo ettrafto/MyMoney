@@ -11,6 +11,13 @@ $totalBudget = 1000;
 //TO-DO: pass and recieve value
 //passed value
 
+//TO-DO: 
+//Uniform month + year data
+//uniform category strings for insertions -- capitalize
+//fix intial bad data for form
+
+//TO-DO: Pi Charts + Line charts
+
 //sanitization function
 function getData($field){
         if (!isset($_POST[$field])){
@@ -223,7 +230,7 @@ $sqlText = substr_replace($sqlText, '"' . $value . '"', $pos, strlen('?'));
 }
 print '<p>' . $sqlText . '</p>';
 
-}
+
 
 
 
@@ -265,7 +272,7 @@ foreach ($variables as $varName => $value) {
         $dataIsGood = false;
     }
 }
-
+}
 ?>
 
 <h2>Montly Goal</h2>
