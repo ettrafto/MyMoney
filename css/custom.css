@@ -46,30 +46,280 @@
 #settingsIcon img{
   height: 2em
 }
+/* Navigation bar styling */
 nav {
-    display: flex;
-    align-items: center;
-}
-nav a{
-    justify-content:flex-start;
-    padding: 0.5em 1.7em;
-    margin: 1.4em 1.3em;
-    border: 3px black solid;
-    
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em; /* Adjust as needed */
+  background-color: #f8f9fa; /* Example background color */
+  border-bottom: 3px solid #ccc; /* Border to separate from the content */
 }
 
-nav a:link {
-    text-decoration-color: black;
-}
-
-nav a:visited {
-    color: darkblue;
-    text-decoration: none;
+nav a {
+  padding: 0.5em 1em; /* Padding for each link */
+  margin: 0 0.5em; /* Margin between links */
+  text-decoration: none; /* Removes underline from links */
+  color: #333; /* Link color */
+  border: 2px solid transparent; /* Transparent border to maintain layout on hover */
 }
 
 nav a:hover {
-      border: 4px dashed aliceblue;
+  border: 2px solid black; /* Border color on hover */
+  border-radius: 4px; /* Optional: rounded corners on hover */
 }
+.activePage {
+  border: 2px solid black; /* Example: Blue border */
+  border-radius: 4px; /* Rounded corners */
+}
+
+
+
+/* CSS FOR BREAKDOWN */
+.chart-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.chart-container > div {
+  flex-basis: 50%;
+  padding: 10px; /* Optional, for some spacing between the charts */
+}
+.button-parent {
+  margin: 5em 0em 0em 0em;
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: stretch; /* Stretch the buttons to fill the container */
+  width: 100%; 
+  box-sizing: border-box; 
+}
+.button-parent button {
+  width: 100%; 
+
+}
+.full-width-button {
+  height: 50px; /* Adjust the height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px; /* Adjust padding for spacing from the left edge */
+  border: 2px solid black; /* Example border */
+  background-color: white; /* Button background color */
+  color: black; /* Button text color */
+  width: 100px; /* Adjust as needed */
+  text-align: center;
+  vertical-align: middle;
+  line-height: 96px; /* Adjust based on the button height */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Optional: for a smooth background color transition */
+}
+
+.full-width-button:hover {
+  background-color: #f0f0f0; /* Optional: change on hover */
+}
+
+.select-boxes {
+  display: flex; /* Use Flexbox */
+  align-items: center; /* Vertically align items in the middle */
+  gap: 10px; /* Space between form elements */
+}
+
+/* Style for labels and select boxes */
+.select-boxes label,
+.select-boxes select {
+  margin-right: 10px; /* Spacing to the right of each element */
+}
+
+/* Style for the last element (submit button) to not have margin-right */
+.select-boxes input[type="submit"] {
+  margin-right: 0;
+}
+
+select {
+  width: 200px; /* Set the width */
+  height: 40px; /* Set the height */
+  padding: 5px 10px; /* Padding inside the dropdown */
+  background-color: white; /* Background color */
+  border: 1px solid #ccc; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  margin: 10px 0; /* Margin for spacing */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow */
+  -webkit-appearance: none; /* Removes default styling on iOS */
+  -moz-appearance: none; /* Removes default styling in Firefox */
+  appearance: none; /* Removes default arrow in most browsers */
+  cursor: pointer; /* Changes cursor to pointer */
+}
+/* Style for hover state */
+select:hover {
+  border-color: #888; /* Darker border on hover */
+}
+
+/* Style for focus state */
+select:focus {
+  outline: none; /* Removes the default focus outline */
+  border-color: #555; /* Border color on focus */
+}
+
+/* Labels for consistency */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="submit"] {
+  height: 40px; /* Same height as the dropdowns */
+  padding: 5px 20px; /* Padding inside the button */
+  background-color: #f8f9fa; /* Light background, similar to select boxes */
+  border: 1px solid #ccc; /* Similar border to select boxes */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  color: #333; /* Dark text color, similar to default text color */
+  cursor: pointer; /* Changes cursor to pointer */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+input[type="submit"]:hover {
+  background-color: #e2e6ea; /* Slightly darker shade for hover state */
+}
+
+input[type="submit"]:focus {
+  outline: none; /* Removes the default focus outline */
+  border-color: #888; /* Darker border on focus */
+}
+.table-display{
+  display: block;
+}
+
+
+.index-tables {
+    display: flex;
+    justify-content: space-around; /* Distributes space around the tables */
+    align-items: stretch; /* Aligns tables to the top */
+    flex-wrap: wrap; /* Allows tables to wrap onto the next line on smaller screens */
+    gap: 20px; /* Adds a gap between the tables */
+}
+
+.index-tables table {
+    width: 48%; /* Sets each table to take up nearly half the width */
+    border-collapse: collapse; /* Ensures borders are collapsed into a single border */
+}
+
+.index-tables th, .index-tables td {
+    border: 1px solid #ccc; /* Adds a border to each cell */
+    padding: 8px; /* Adds padding inside each cell */
+    text-align: left; /* Aligns text to the left */
+}
+
+.index-tables th {
+    background-color: #f8f9fa; /* Adds a background color to the header */
+}
+
+table {
+  width: 100%; /* Set tables to full width */
+  display:none;
+  max-width: 100%; /* Ensure table is not wider than its container */
+  border-collapse: collapse; /* Ensures borders collapse */
+}
+
+table, th, td {
+  border: 1px solid #ccc; /* Light grey border */
+}
+
+th, td {
+  text-align: left; /* Align text to the left */
+  padding: 8px; /* Padding inside each cell */
+}
+
+th {
+  background-color: #f8f9fa; /* Light background for header, similar to select boxes */
+  color: #333; /* Dark text color */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Zebra striping for rows */
+}
+
+tr:hover {
+  background-color: #ddd; /* Hover effect for rows */
+}
+
+/* Optional: Style for no transaction message */
+table tr td[colspan="4"] {
+  text-align: center; /* Center align the text */
+  padding: 15px; /* More padding for better visibility */
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-container > * {
+  flex: 1;  /* Each child takes up equal space */
+  padding: 2em;
+  max-width: 50%;  /* Limit width to half of the container */
+}
+
+#form-graph {
+  max-width: 50%; /* Limit width to half of the container */
+}
+
+.form-container {
+  max-width: 50%; /* Limit width to half of the container */
+}
+.form-container {
+  max-width: 80%; /* Adjust as needed */
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better focus */
+}
+
+.form-container fieldset {
+  border: none; /* Removes the default border */
+  margin: 10px 0;
+}
+
+.form-container fieldset p {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.form-container label {
+  flex: 1; /* Adjusts label width */
+  margin-right: 10px; /* Spacing between label and field */
+  text-align: left;
+}
+
+.form-container input[type="text"],
+.form-container select {
+  flex: 2; /* Adjusts input field width */
+  padding: 5px;
+  font-size: 1em;
+}
+
+.form-container .buttons {
+  text-align: center;
+}
+
+/* Optional: Style the submit button */
+.form-container input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
 
 footer{
     display: flex;
@@ -80,4 +330,28 @@ footer{
 
 footer p{
     padding: 0.2em 1em;
+}
+
+
+
+.arrow-down {
+  display:inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-left: 0;
+  border-top: 0;
+
+  transform: rotate(45deg);
+}
+
+.arrow-up {
+  display:inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #333;
+  border-left: 0;
+  border-top: 0;
+
+  transform: rotate(225deg);
 }

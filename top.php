@@ -28,6 +28,44 @@ $pathParts = pathinfo($phpSelf);
                     element.style.display = 'none';        
                 }
             }
+
+            
+        function onSelectionChange() {
+            var month = document.getElementById('month').value;
+            var year = document.getElementById('year').value;
+
+            // Creating an XMLHttpRequest object
+            var xhttp = new XMLHttpRequest();
+
+            // Define what happens on successful data submission
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Handle response here (e.g., update the page)
+                    console.log(this.responseText);
+                }
+            };
+
+            // Set up our request
+            xhttp.open("POST", "handle_selection.php", true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+            // Sending the request to the server
+            xhttp.send("month=" + month + "&year=" + year);
+        }
+        function togglePanel(panelId) {
+            var panel = document.getElementById(panelId);
+            var arrow = document.getElementById('arrow-' + panelId);
+
+            if (panel.style.display === "none") {
+                panel.style.display = "block";
+                arrow.className = "arrow-up";
+            } else {
+                panel.style.display = "none";
+                arrow.className = "arrow-down";
+            }
+        }
+ 
+            
         </script>
     </head>
 
