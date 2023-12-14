@@ -237,7 +237,6 @@ VALUES
 -- Inserting data for Budgets
 INSERT INTO tblBudget (pmkMonth, fnkUserId, fnkCategoryName, fldTotalBudget, fldAmount)
 VALUES
-    -- User1 Budgets
     ('January 2023', 1, 'Housing', 180.00, 30.00),
     ('January 2023', 1, 'Utilities', 180.00, 0.00),
     ('January 2023', 1, 'Food', 180.00, 25.00),
@@ -246,9 +245,7 @@ VALUES
     ('January 2023', 1, 'Savings', 180.00, 10.00),
     ('January 2023', 1, 'Personal', 180.00, 15.00),
     ('January 2023', 1, 'Entertainment', 180.00, 5.00),
-    ('January 2023', 1, 'Health', 180.00, 0.00),
+    ('January 2023', 1, 'Health and Fitness', 180.00, 20.00),
     ('January 2023', 1, 'Education', 180.00, 20.00),
     ('January 2023', 1, 'Investments', 180.00, 0.00),
     ('January 2023', 1, 'Miscellaneous', 180.00, 5.00);
-
--->

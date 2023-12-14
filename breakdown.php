@@ -8,7 +8,7 @@
     fix percents
     -->
                 <main>
-                    <form class="select-boxes"action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                    <form class="select-boxes"action=" <?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
                             <!-- Month Dropdown -->
                             <label for="month">Month:</label>
                             <select name="month" id="month">
@@ -320,7 +320,7 @@
 
                     //<span class="arrow-down" id="arrow-housing">
                     // Housing
-                    print '<button class="full-width-button" onclick="dropPanel(\'housing\')"></span> Housing</button>';
+                    print '<button class="full-width-button" onclick="dropPanel(\'housing\')">Housing</button>';
                     print '<table id="housing" style="display:none;">';
                     print $housingPrint;
                     print '</table>';

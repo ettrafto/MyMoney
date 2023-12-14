@@ -438,7 +438,7 @@ foreach ($variables as $varName => $value) {
             }
         </script>      
     </section>         
-    <form class="form-container"action = "#" method = "POST">
+    <form class="form-container" action = "#" method = "POST">
 
         <!-- passing userId to form
         <input type="hidden"

@@ -38,7 +38,7 @@
   
   #settingsIcon {
     flex: 0.02;
-    max-width:100;
+    max-width:100%;
     flex: 0.03; 
     display: flex; 
     align-items: center; 
